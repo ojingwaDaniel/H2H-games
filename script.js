@@ -125,6 +125,10 @@
  ]
  let ul = document.createElement('ul')
  let scoreline ;
+ let title =document.createElement('h2')
+ title.innerText = 'HEAD TO HEAD MATCHES'
+ title.classList.add('subTitle')
+ document.body.insertAdjacentElement('beforebegin',title)
 for (let clubs of leagueTeams) {
    const{awayTeam,homeTeam} = clubs;
   let {team:aTeam,goals:agoals} = awayTeam
@@ -141,7 +145,7 @@ for (let clubs of leagueTeams) {
 
    let leagueTable = document.createElement('li')
    
-   leagueTable.innerHTML = `${clubName}   \n Goals : ${scoreline} `
+   leagueTable.innerHTML = `${clubName}\n Goals : ${scoreline} `
   leagueTable.classList.add(barcelona.winner? 'win': 'loss')
 
    ul.appendChild(leagueTable)
