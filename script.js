@@ -2,85 +2,146 @@
     {
         awayTeam : {
             team : ' real Madrid',
-            point : 90,
+            goals : 2,
             winner : true
         },
         homeTeam : {
             team : 'barcelona',
-            point : 80,
+            goals : 1,
             winner : false
         }
     },
     {
         awayTeam : {
             team : 'barcelona',
-            point : 85,
-            winner : true
+            goals : 2,
+            winner : false
         },
         homeTeam : {
             team : 'Real Madrid',
-            point : 70,
+            goals : 3,
             winner : false
         }
     },
     {
         awayTeam : {
             team : 'Real Madrid',
-            point : 85,
+            goals : 0,
             winner : true
         },
         homeTeam : {
             team : 'Barcelona',
-            point : 70,
-            winner : false
+            goals : 4,
+            winner : true
         }
     },
     {
         awayTeam : {
             team : 'Real Madrid',
-            point : 85,
-            winner : true
+            goals : 0,
+            winner : false
         },
         homeTeam : {
             team : 'Barcelona',
-            point : 70,
+            goals : 1,
+            winner : true
+        }
+    },
+    {
+        awayTeam : {
+            team : 'barcelona',
+            goals : 5,
+            winner : true
+        },
+        homeTeam : {
+            team : 'Real Madrid',
+            goals : 0,
+            winner : false
+        }
+    },
+    {
+        awayTeam : {
+            team : ' real Madrid',
+            goals : 4,
+            winner : true
+        },
+        homeTeam : {
+            team : 'barcelona',
+            goals : 1,
             winner : false
         }
     },
     {
         awayTeam : {
             team : 'barcelona',
-            point : 85,
+            goals : 4,
             winner : true
         },
         homeTeam : {
             team : 'Real Madrid',
-            point : 70,
+            goals : 1,
             winner : false
         }
     },
+    {
+        awayTeam : {
+            team : 'Real Madrid',
+            goals : 2,
+            winner : true
+        },
+        homeTeam : {
+            team : 'Barcelona',
+            goals : 1,
+            winner : false
+        }
+    },
+    {
+        awayTeam : {
+            team : 'Real Madrid',
+            goals : 2,
+            winner : true
+        },
+        homeTeam : {
+            team : 'Barcelona',
+            goals : 1,
+            winner : false
+        }
+    },
+    {
+        awayTeam : {
+            team : 'barcelona',
+            goals : 5,
+            winner : true
+        },
+        homeTeam : {
+            team : 'Real Madrid',
+            goals : 2,
+            winner : false
+        }
+    },
+    
     
     
  ]
  let ul = document.createElement('ul')
- let points ;
+ let scoreline ;
 for (let clubs of leagueTeams) {
    const{awayTeam,homeTeam} = clubs;
-  let {team:aTeam,point:aPoint} = awayTeam
-  let{team:hTeam,point:hPoint} = homeTeam
+  let {team:aTeam,goals:agoals} = awayTeam
+  let{team:hTeam,goals:hgoals} = homeTeam
 
 
   let clubName = `${hTeam} vs ${aTeam}`
-  if(hPoint> aPoint){
-    points =` <b>${hPoint}</b> : ${aPoint}`
+  if(hgoals> agoals){
+    scoreline =` <b>${hgoals}</b> : ${agoals}`
   }else{
-    points =` ${hPoint} : <b>${aPoint}</b>`
+    scoreline =` ${hgoals} : <b>${agoals}</b>`
   }
   let barcelona = hTeam == 'Barcelona' ? homeTeam : awayTeam
 
    let leagueTable = document.createElement('li')
    
-   leagueTable.innerHTML = `${clubName}   \n Points : ${points} `
+   leagueTable.innerHTML = `${clubName}   \n Goals : ${scoreline} `
   leagueTable.classList.add(barcelona.winner? 'win': 'loss')
 
    ul.appendChild(leagueTable)
