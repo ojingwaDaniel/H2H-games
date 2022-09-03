@@ -1,7 +1,15 @@
 .win{
-    background-color: green;
+    background-color: lightgreen;
 
 }
 .loss{
     background-color: red;
+}
+li{
+    padding: 10px;
+    border-bottom: 2px black solid;
+}
+.subTitle{
+    text-align: center;
+    
 }
