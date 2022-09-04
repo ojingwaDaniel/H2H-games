@@ -126,7 +126,7 @@
  const premierLeague = [
     {
         awayTeam : {
-            team : 'Liverpool',
+            team : 'liverpool',
             goals : 2,
             winner : true
         },
@@ -143,14 +143,14 @@
             winner : false
         },
         homeTeam : {
-            team : ' Liverpool',
+            team : 'liverpool',
             goals : 3,
             winner : true
         }
     },
     {
         awayTeam : {
-            team : ' Liverpool',
+            team : 'liverpool',
             goals : 0,
             winner : false
         },
@@ -162,7 +162,7 @@
     },
     {
         awayTeam : {
-            team : ' Liverpool',
+            team : 'liverpool',
             goals : 0,
             winner : false
         },
@@ -179,14 +179,14 @@
             winner : true
         },
         homeTeam : {
-            team : ' Liverpool',
+            team : 'liverpool',
             goals : 0,
             winner : false
         }
     },
     {
         awayTeam : {
-            team : 'Liverpool',
+            team : 'liverpool',
             goals : 4,
             winner : true
         },
@@ -203,14 +203,14 @@
             winner : true
         },
         homeTeam : {
-            team : ' Liverpool',
+            team : 'liverpool',
             goals : 1,
             winner : false
         }
     },
     {
         awayTeam : {
-            team : ' Liverpool',
+            team : 'liverpool',
             goals : 2,
             winner : true
         },
@@ -222,7 +222,7 @@
     },
     {
         awayTeam : {
-            team : ' Liverpool',
+            team : 'liverpool',
             goals : 2,
             winner : true
         },
@@ -239,7 +239,7 @@
             winner : true
         },
         homeTeam : {
-            team : ' Liverpool',
+            team : 'liverpool',
             goals : 2,
             winner : false
         }
@@ -256,10 +256,6 @@
         const{homeTeam,awayTeam} = games
         const{team:homeClub,goals:homeGoals} = homeTeam
         const{team:awayClub,goals:awayGoals} = awayTeam
-       const targetTeam = homeClub == currentCLubPage ? homeTeam : awayTeam;
-       
-        
-      
         let scoreline ;
         if(homeGoals > awayGoals){
             scoreline = `<b>${homeGoals}</b> : ${awayGoals}`
@@ -268,9 +264,13 @@
 
         }
         
+       const targetTeam = homeClub === currentCLubPage ? homeTeam : awayTeam;
+       
         
+      
+        
+        listOfGames.classList.add( targetTeam.winner ?'win':'loss')
         listOfGames.innerHTML= `${homeClub} vs ${awayClub} \n Scoreline : ${scoreline}`
-       listOfGames.classList.add(targetTeam.winner ? 'win' : 'loss')
 
         parentData.appendChild(listOfGames)
         document.body.prepend(parentData)
@@ -282,10 +282,10 @@
  }
 
  
- let week1Games = makeChart(leagueTeams,'barcelona')
- let week2Games = makeChart(leagueTeams,'Real Madrid')
-let week3Games = makeChart(premierLeague,'Liverpool')
-let week4Games = makeChart(premierLeague,'ManCity')
+//  let week1Games = makeChart(leagueTeams,'Barcelona')
+//  let week2Games = makeChart(leagueTeams,'Real Madrid')
+let week3Games = makeChart(premierLeague,'liverpool')
+// let week4Games = makeChart(premierLeague,'ManCity')
  
 
 
