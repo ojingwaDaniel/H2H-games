@@ -1,55 +1,55 @@
  const leagueTeams = [
     {
         awayTeam : {
-            team : ' real Madrid',
+            team : 'Real Madrid',
             goals : 2,
             winner : true
         },
         homeTeam : {
-            team : 'barcelona',
+            team : 'Barcelona',
             goals : 1,
             winner : false
         }
     },
     {
         awayTeam : {
-            team : 'barcelona',
+            team : 'Barcelona',
             goals : 2,
             winner : false
         },
         homeTeam : {
             team : 'Real Madrid',
             goals : 3,
-            winner : false
+            winner : true
         }
     },
     {
         awayTeam : {
-            team : 'Real Madrid',
+            team : ' Real Madrid',
             goals : 0,
-            winner : true
+            winner : false
         },
         homeTeam : {
-            team : 'barcelona',
+            team : 'Barcelona',
             goals : 4,
             winner : true
         }
     },
     {
         awayTeam : {
-            team : 'Real Madrid',
+            team : ' Real Madrid',
             goals : 0,
             winner : false
         },
         homeTeam : {
-            team : 'barcelona',
+            team : 'Barcelona',
             goals : 1,
             winner : true
         }
     },
     {
         awayTeam : {
-            team : 'barcelona',
+            team : 'Barcelona',
             goals : 5,
             winner : true
         },
@@ -61,19 +61,19 @@
     },
     {
         awayTeam : {
-            team : ' real Madrid',
+            team : ' Real Madrid',
             goals : 4,
             winner : true
         },
         homeTeam : {
-            team : 'barcelona',
+            team : 'Barcelona',
             goals : 1,
             winner : false
         }
     },
     {
         awayTeam : {
-            team : 'barcelona',
+            team : 'Barcelona',
             goals : 4,
             winner : true
         },
@@ -85,36 +85,161 @@
     },
     {
         awayTeam : {
-            team : 'Real Madrid',
+            team : ' Real Madrid',
             goals : 2,
             winner : true
         },
         homeTeam : {
-            team : 'barcelona',
+            team : 'Barcelona',
             goals : 1,
             winner : false
         }
     },
     {
         awayTeam : {
-            team : 'Real Madrid',
+            team : ' Real Madrid',
             goals : 2,
             winner : true
         },
         homeTeam : {
-            team : 'barcelona',
+            team : 'Barcelona',
             goals : 1,
             winner : false
         }
     },
     {
         awayTeam : {
-            team : 'barcelona',
+            team : 'Barcelona',
             goals : 5,
             winner : true
         },
         homeTeam : {
             team : 'Real Madrid',
+            goals : 2,
+            winner : false
+        }
+    }
+    
+    
+    
+ ]
+ const premierLeague = [
+    {
+        awayTeam : {
+            team : 'Liverpool',
+            goals : 2,
+            winner : true
+        },
+        homeTeam : {
+            team : 'ManCity',
+            goals : 1,
+            winner : false
+        }
+    },
+    {
+        awayTeam : {
+            team : 'ManCity',
+            goals : 2,
+            winner : false
+        },
+        homeTeam : {
+            team : ' Liverpool',
+            goals : 3,
+            winner : true
+        }
+    },
+    {
+        awayTeam : {
+            team : ' Liverpool',
+            goals : 0,
+            winner : false
+        },
+        homeTeam : {
+            team : 'ManCity',
+            goals : 4,
+            winner : true
+        }
+    },
+    {
+        awayTeam : {
+            team : ' Liverpool',
+            goals : 0,
+            winner : false
+        },
+        homeTeam : {
+            team : 'ManCity',
+            goals : 1,
+            winner : true
+        }
+    },
+    {
+        awayTeam : {
+            team : 'ManCity',
+            goals : 5,
+            winner : true
+        },
+        homeTeam : {
+            team : ' Liverpool',
+            goals : 0,
+            winner : false
+        }
+    },
+    {
+        awayTeam : {
+            team : 'Liverpool',
+            goals : 4,
+            winner : true
+        },
+        homeTeam : {
+            team : 'ManCity',
+            goals : 1,
+            winner : false
+        }
+    },
+    {
+        awayTeam : {
+            team : 'ManCity',
+            goals : 4,
+            winner : true
+        },
+        homeTeam : {
+            team : ' Liverpool',
+            goals : 1,
+            winner : false
+        }
+    },
+    {
+        awayTeam : {
+            team : ' Liverpool',
+            goals : 2,
+            winner : true
+        },
+        homeTeam : {
+            team : 'ManCity',
+            goals : 1,
+            winner : false
+        }
+    },
+    {
+        awayTeam : {
+            team : ' Liverpool',
+            goals : 2,
+            winner : true
+        },
+        homeTeam : {
+            team : 'ManCity',
+            goals : 1,
+            winner : false
+        }
+    },
+    {
+        awayTeam : {
+            team : 'ManCity',
+            goals : 5,
+            winner : true
+        },
+        homeTeam : {
+            team : ' Liverpool',
             goals : 2,
             winner : false
         }
@@ -131,8 +256,9 @@
         const{homeTeam,awayTeam} = games
         const{team:homeClub,goals:homeGoals} = homeTeam
         const{team:awayClub,goals:awayGoals} = awayTeam
-       const targetTeam = homeClub == currentCLubPage ? homeTeam : awayTeam
-       console.log(targetTeam)
+       const targetTeam = homeClub == currentCLubPage ? homeTeam : awayTeam;
+       
+        
       
         let scoreline ;
         if(homeGoals > awayGoals){
@@ -142,9 +268,10 @@
 
         }
         
-        // console.log(currentCLubPage)
         
         listOfGames.innerHTML= `${homeClub} vs ${awayClub} \n Scoreline : ${scoreline}`
+       listOfGames.classList.add(targetTeam.winner ? 'win' : 'loss')
+
         parentData.appendChild(listOfGames)
         document.body.prepend(parentData)
         
@@ -155,7 +282,11 @@
  }
 
  
- let week1Games = makeChart(leagueTeams,'Real Madrid')
+ let week1Games = makeChart(leagueTeams,'barcelona')
+ let week2Games = makeChart(leagueTeams,'Real Madrid')
+let week3Games = makeChart(premierLeague,'Liverpool')
+let week4Games = makeChart(premierLeague,'ManCity')
+ 
 
 
 
