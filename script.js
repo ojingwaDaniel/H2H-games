@@ -118,40 +118,47 @@
             goals : 2,
             winner : false
         }
-    },
+    }
     
     
     
  ]
- let ul = document.createElement('ul')
- let scoreline ;
- let title =document.createElement('h2')
- title.innerText = 'HEAD TO HEAD MATCHES'
- title.classList.add('subTitle')
- document.body.insertAdjacentElement('beforebegin',title)
-for (let clubs of leagueTeams) {
-   const{awayTeam,homeTeam} = clubs;
-  let {team:aTeam,goals:agoals} = awayTeam
-  let{team:hTeam,goals:hgoals} = homeTeam
+ const makeChart = (H2Hgames)=>{
+    let parentData = document.createElement('ul')
+    for (let games of H2Hgames) {
+        let listOfGames = document.createElement('li')
+        const{homeTeam,awayTeam} = games
+        const{team:homeClub,goals:homeGoals} = homeTeam
+        const{team:awayClub,goals:awayGoals} = awayTeam
+        let scoreline ;
+        if(homeGoals > awayGoals){
+            scoreline = `<b>${homeGoals}</b> : ${awayGoals}`
+        }else{
+            scoreline = `${homeGoals} : <b>${awayGoals}</b>`
+
+        }
+        let currentCLubPage = (clubName)=>{
+            clubName === homeClub ? 
+        
+         }
+        listOfGames.innerHTML= `${homeClub} vs ${awayClub} \n Scoreline : ${scoreline}`
+        parentData.appendChild(listOfGames)
+        document.body.prepend(parentData)
+        
+    }
+    
+    return parentData
+
+ }
+ 
+ let week1Games = makeChart(leagueTeams)
+ let week2Games = makeChart(leagueTeams)
+ let club = currentCLubPage('Real Madrid')
+ 
+ 
+ 
 
 
-  let clubName = `${hTeam} vs ${aTeam}`
-  if(hgoals> agoals){
-    scoreline =` <b>${hgoals}</b> : ${agoals}`
-  }else{
-    scoreline =` ${hgoals} : <b>${agoals}</b>`
-  }
-  let barcelona = hTeam == 'Barcelona' ? homeTeam : awayTeam
-
-   let leagueTable = document.createElement('li')
-   
-   leagueTable.innerHTML = `${clubName}\n Goals : ${scoreline} `
-  leagueTable.classList.add(barcelona.winner? 'win': 'loss')
-
-   ul.appendChild(leagueTable)
   
+ 
 
-
-  
-}
-document.body.prepend(ul)
