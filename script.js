@@ -30,7 +30,7 @@
             winner : true
         },
         homeTeam : {
-            team : 'Barcelona',
+            team : 'barcelona',
             goals : 4,
             winner : true
         }
@@ -42,7 +42,7 @@
             winner : false
         },
         homeTeam : {
-            team : 'Barcelona',
+            team : 'barcelona',
             goals : 1,
             winner : true
         }
@@ -90,7 +90,7 @@
             winner : true
         },
         homeTeam : {
-            team : 'Barcelona',
+            team : 'barcelona',
             goals : 1,
             winner : false
         }
@@ -102,7 +102,7 @@
             winner : true
         },
         homeTeam : {
-            team : 'Barcelona',
+            team : 'barcelona',
             goals : 1,
             winner : false
         }
@@ -123,13 +123,17 @@
     
     
  ]
- const makeChart = (H2Hgames)=>{
+ const makeChart = (H2Hgames,currentCLubPage)=>{
+    
     let parentData = document.createElement('ul')
     for (let games of H2Hgames) {
         let listOfGames = document.createElement('li')
         const{homeTeam,awayTeam} = games
         const{team:homeClub,goals:homeGoals} = homeTeam
         const{team:awayClub,goals:awayGoals} = awayTeam
+       const targetTeam = homeClub == currentCLubPage ? homeTeam : awayTeam
+       console.log(targetTeam)
+      
         let scoreline ;
         if(homeGoals > awayGoals){
             scoreline = `<b>${homeGoals}</b> : ${awayGoals}`
@@ -137,10 +141,9 @@
             scoreline = `${homeGoals} : <b>${awayGoals}</b>`
 
         }
-        let currentCLubPage = (clubName)=>{
-            clubName === homeClub ? 
         
-         }
+        // console.log(currentCLubPage)
+        
         listOfGames.innerHTML= `${homeClub} vs ${awayClub} \n Scoreline : ${scoreline}`
         parentData.appendChild(listOfGames)
         document.body.prepend(parentData)
@@ -150,10 +153,12 @@
     return parentData
 
  }
+
  
- let week1Games = makeChart(leagueTeams)
- let week2Games = makeChart(leagueTeams)
- let club = currentCLubPage('Real Madrid')
+ let week1Games = makeChart(leagueTeams,'Real Madrid')
+
+
+
  
  
  
